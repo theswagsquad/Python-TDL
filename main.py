@@ -12,6 +12,16 @@ def main():
             addTask(tasklist)
         elif option == "view tasks":
             viewTasks(tasklist)
+        elif option == "delete task":
+            deleteTask(tasklist)
+
+
+def deleteTask(tasklst):
+    if len(tasklst) == 0:
+        print("There are no tasks to delete")
+    else:
+        taskpos = int(input("what task number would you like to delete? ")) - 1
+        print(f"task: {tasklst.pop(taskpos)} has been removed")
 
 
 def viewTasks(tasklst):
@@ -24,7 +34,7 @@ def viewTasks(tasklst):
 
 def addTask(tasklst):
     taskname = input("name of task: ")
-    
+
     try:
         priority = int(input("priority (1,2,3): "))
     except:
