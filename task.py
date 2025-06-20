@@ -1,5 +1,3 @@
-import datetime
-
 class Task:
     def __init__(self, name: str, desc: str, deadline: datetime, complete: bool, priority: int):
         self.__name = name
@@ -19,4 +17,8 @@ class Task:
             self.__complete = False
 
     def ViewDetailed(self):
-        pass
+        return (f"""Task: {self.__name}"
+                Description: {self.__desc}"
+                Deadline: {self.__deadline}"
+                Completed?: {self.__complete}"
+                Priority level: {self.__priority}""")
