@@ -4,8 +4,10 @@ import datetime
 def main():
     tasklist = []
     running = True
+
     while running == True:
         option = input("what would you like to do?")
+
         if option == "add task":
             addTask(tasklist)
         elif option == "view tasks":
@@ -17,15 +19,27 @@ def viewTasks(tasklst):
         print("you have no tasks")
     else:
         for i,tsk in enumerate(tasklst):
-            print(f"{i}. {tsk}")
+            print(f"{i+1}. {tsk}")
 
 
 def addTask(tasklst):
     taskname = input("name of task: ")
-    priority = int(input("priority (1,2,3): "))
+    
+    try:
+        priority = int(input("priority (1,2,3): "))
+    except:
+        print("invalid format, default to priority 3")
+        priority = 3
+
     desc = input("give your task a description: ")
-    date = input("give the due date (dd-mm-yyyy): ")
-    duedate = datetime.datetime.strptime(date, '%d-%m-%Y').date()
+    
+    try:
+        date = input("give the due date (dd-mm-yyyy): ")
+        duedate = datetime.datetime.strptime(date, '%d-%m-%Y').date()
+    except:
+        duedate = None
+        print("invalid date format, no date will be added")
+
     tasklst.append(Task(taskname, desc, duedate, False, priority))
 
 
