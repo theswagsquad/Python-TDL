@@ -14,7 +14,14 @@ def main():
             viewTasks(tasklist)
         elif option == "delete task":
             deleteTask(tasklist)
+        elif option == "mark complete":
+            finishTask(tasklist)
 
+
+def finishTask(tasklst):
+    taskpos = int(input("what task number would you like to delete? ")) - 1
+    tasklst[taskpos].MarkComplete()
+    print(f"task: {tasklst[taskpos]} has been completed")
 
 def deleteTask(tasklst):
     if len(tasklst) == 0:
