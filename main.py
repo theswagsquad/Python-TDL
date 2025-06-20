@@ -18,8 +18,12 @@ def main():
             finishTask(tasklist)
         elif option == "view a task":
             getDetailedView(tasklist)
+        elif option == "quit":
+            print("Quitting...")
+            running = False
         else:
             print("Invalid option")
+
 
 def getDetailedView(tasklst):
     taskpos = int(input("what task number would you like to view? ")) - 1
