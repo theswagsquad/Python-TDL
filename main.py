@@ -16,12 +16,21 @@ def main():
             deleteTask(tasklist)
         elif option == "mark complete":
             finishTask(tasklist)
+        elif option == "view a task":
+            getDetailedView(tasklist)
+        else:
+            print("Invalid option")
+
+def getDetailedView(tasklst):
+    taskpos = int(input("what task number would you like to delete? ")) - 1
+    print(tasklst[taskpos].ViewDetailed())
 
 
 def finishTask(tasklst):
-    taskpos = int(input("what task number would you like to delete? ")) - 1
+    taskpos = int(input("what task number would you like to finish? ")) - 1
     tasklst[taskpos].MarkComplete()
     print(f"task: {tasklst[taskpos]} has been completed")
+
 
 def deleteTask(tasklst):
     if len(tasklst) == 0:
@@ -58,7 +67,6 @@ def addTask(tasklst):
         print("invalid date format, no date will be added")
 
     tasklst.append(Task(taskname, desc, duedate, False, priority))
-
 
 
 if __name__ == '__main__':
