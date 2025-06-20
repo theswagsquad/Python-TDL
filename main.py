@@ -1,4 +1,4 @@
-from task import task
+from task import Task
 import datetime
 
 def main():
@@ -15,7 +15,7 @@ def addTask(tasklst):
     desc = input("give your task a description: ")
     date = input("give the due date (dd-mm-yyyy): ")
     duedate = datetime.strptime(date, '%d-%m-%Y').date()
-    tasklst.append(task(taskname, desc, duedate, False, priority))
+    tasklst.append(Task(taskname, desc, duedate, False, priority))
 
 
 
