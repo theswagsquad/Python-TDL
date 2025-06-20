@@ -6,7 +6,7 @@ def main():
     running = True
 
     while running == True:
-        option = input("what would you like to do?")
+        option = input("what would you like to do? ")
 
         if option == "add task":
             addTask(tasklist)
@@ -22,7 +22,7 @@ def main():
             print("Invalid option")
 
 def getDetailedView(tasklst):
-    taskpos = int(input("what task number would you like to delete? ")) - 1
+    taskpos = int(input("what task number would you like to view? ")) - 1
     print(tasklst[taskpos].ViewDetailed())
 
 
